@@ -1,0 +1,7 @@
+scipy==1.6.1
+numpy==1.19.2
+pandas==1.0.1
+scikit_learn==0.24.2
+tslearn==0.24.2
+sktime==0.13.0
+torchmetrics==0.9.1
