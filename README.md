@@ -1,6 +1,6 @@
 # LSDS
 
-This repository contains the Pytorch implementation for the paper **Learning to Search Original subsequences Benefits Shapelets-based Time Series Classification**.
+This repository contains the Pytorch implementation for the paper **LSDS: Learning to Search Dynamic Shapelets for Time Series Classification**.
 The official version will be released upon publication of the paper.
 
 ## Requirements
