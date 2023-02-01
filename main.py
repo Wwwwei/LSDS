@@ -23,11 +23,13 @@ if __name__ == '__main__':
     # =============args=============
     dataset_name = 'Coffee'
     epochs = 200
-    K = 50
-    H = 32
+    L = 0.1
+    R = 3
+    H = 64
     dropout = 0.25
     batch_size = 16
     lr = 0.001
+    num_workers = 0
     # ==============================
 
     train_x, train_y, test_x, test_y = load_dataset(
@@ -40,26 +42,30 @@ if __name__ == '__main__':
 
     print('dataset:', dataset_name)
     print('GPU is available:', torch.cuda.is_available())
+
     print('num_classes:', num_classes)
     print('num_timesteps:', num_timesteps)
     print('num_channels:', num_channels)
+
     print('train_x:', train_x.shape, 'train_y:', train_y.shape)
     print('test_x:', test_x.shape, 'test_y:', test_y.shape)
 
-    print('GPU is available:', torch.cuda.is_available())
-    print('shapelets_len:', num_timesteps -
-          (K - 1) * math.floor(num_timesteps / K))
-    print('shapelets_stride:', math.floor(num_timesteps / K))
-    print('shapelets_num:', K)
+    print('shapelets_len:', int(num_timesteps * L))
+    print('shapelets_stride:', R)
+    print('shapelets_num:',
+          math.floor((num_timesteps - int(num_timesteps * L)) / R + 1))
 
     model = LSDSModel(
-        K=K,
+        L=L,
+        R=R,
         H=H,
         dropout=dropout,
         lr=lr,
         epochs=epochs,
         batch_size=batch_size,
-        num_workers=num_classes,
+        num_timesteps=num_timesteps,
+        num_channels=num_channels,
+        num_workers=num_workers,
         num_classes=num_classes
     )
     model.train(train_x, train_y)
