@@ -26,6 +26,7 @@ pip install -r requirements.txt
 The datasets can be obtained and put into `datasets/` folder in the following way:
 
 * [128 UCR datasets](http://www.timeseriesclassification.com) should be put into `datasets/` so that each data file can be located by `datasets/UCR/<dataset_name>/<dataset_name>_*.arff`.
+* [30 UEA datasets](http://www.timeseriesclassification.com) should be put into `datasets/` so that each data file can be located by `datasets/UEA/<dataset_name>/<dataset_name>_*.arff`.
 
 
 ## Usage
