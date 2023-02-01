@@ -26,7 +26,7 @@ if __name__ == '__main__':
     L = 0.1
     R = 3
     H = 64
-    dropout = 0.25
+    dropout = 0.
     batch_size = 16
     lr = 0.001
     num_workers = 0
